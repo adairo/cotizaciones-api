@@ -1,0 +1,19 @@
+{
+  "name": "grupo-salinas-api",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "una api para la gestión de productos, plazos y cotizaciones",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "adairo",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
