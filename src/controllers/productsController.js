@@ -23,8 +23,20 @@ export const deleteProduct = async (req, res) => {
   const { productId } = req.params;
   try {
     const removedProduct = await service.deleteProduct(productId);
-    res.status(202).send(removedProduct)
+    res.status(202).send(removedProduct);
   } catch (error) {
     res.status(error.status ?? 500).send({ error: error.message });
+  }
+};
+
+export const updateProduct = async (req, res) => {
+  const { productSku } = req.params;
+  const productData = req.body;
+
+  try {
+    const newProduct = await service.updateProduct(productSku, productData);
+    res.status(201).send(newProduct);
+  } catch (error) {
+    res.status(error.status ?? 500).send({error: error.message})
   }
 };

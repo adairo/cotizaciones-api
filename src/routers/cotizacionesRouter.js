@@ -4,4 +4,4 @@ import * as schema from "../schemas/cotizacionesSchema.js"
 import * as controller from "../controllers/cotizacionesController.js"
 export const cotizacionesRouter = express.Router()
 
-cotizacionesRouter.get("/:productId/:plazo", validate(schema.getEstimate), controller.getEstimate)
+cotizacionesRouter.get("/:productId(\\d+)/:plazo(\\d+)", validate(schema.getEstimate), controller.getEstimate)

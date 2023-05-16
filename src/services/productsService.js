@@ -44,6 +44,31 @@ export const deleteProduct = async (productId) => {
     };
   }
 
-  const [removedProduct] = result.rows
+  const [removedProduct] = result.rows;
   return removedProduct;
+};
+
+export const updateProduct = async (productSku, data) => {
+  const result = await pool.query(
+    `
+    UPDATE productos
+    SET 
+      sku = COALESCE($1, sku),
+      nombre = COALESCE($2, nombre),
+      precio = COALESCE($3, precio)
+    WHERE sku = $4
+    RETURNING sku, nombre, precio
+  `,
+    [data.sku, data.nombre, data.precio, productSku]
+  );
+
+  if (result.rowCount === 0) {
+    throw {
+      status: 404,
+      message: "No se pudo actualizar el producto con sku " + productSku,
+    };
+  }
+
+  const [row] = result.rows;
+  return row
 };
