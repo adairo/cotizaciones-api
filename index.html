@@ -1,0 +1,727 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Swagger Cotizaciones Crédito - OpenAPI 3.0</title>
+  <style type="text/css">
+    body {
+      font-family: Trebuchet MS, sans-serif;
+      font-size: 15px;
+      color: #444;
+      margin-right: 24px;
+    }
+
+    h1 {
+      font-size: 25px;
+    }
+
+    h2 {
+      font-size: 20px;
+    }
+
+    h3 {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    hr {
+      height: 1px;
+      border: 0;
+      color: #ddd;
+      background-color: #ddd;
+    }
+
+    .app-desc {
+      clear: both;
+      margin-left: 20px;
+    }
+
+    .param-name {
+      width: 100%;
+    }
+
+    .license-info {
+      margin-left: 20px;
+    }
+
+    .license-url {
+      margin-left: 20px;
+    }
+
+    .model {
+      margin: 0 0 0px 20px;
+    }
+
+    .method {
+      margin-left: 20px;
+    }
+
+    .method-notes {
+      margin: 10px 0 20px 0;
+      font-size: 90%;
+      color: #555;
+    }
+
+    pre {
+      padding: 10px;
+      margin-bottom: 2px;
+    }
+
+    .http-method {
+      text-transform: uppercase;
+    }
+
+    pre.get {
+      background-color: #0f6ab4;
+    }
+
+    pre.post {
+      background-color: #10a54a;
+    }
+
+    pre.put {
+      background-color: #c5862b;
+    }
+
+    pre.delete {
+      background-color: #a41e22;
+    }
+
+    .huge {
+      color: #fff;
+    }
+
+    pre.example {
+      background-color: #f3f3f3;
+      padding: 10px;
+      border: 1px solid #ddd;
+    }
+
+    code {
+      white-space: pre;
+    }
+
+    .nickname {
+      font-weight: bold;
+    }
+
+    .method-path {
+      font-size: 1.5em;
+      background-color: #0f6ab4;
+    }
+
+    .up {
+      float: right;
+    }
+
+    .parameter {
+      width: 500px;
+    }
+
+    .param {
+      width: 500px;
+      padding: 10px 0 0 20px;
+      font-weight: bold;
+    }
+
+    .param-desc {
+      width: 700px;
+      padding: 0 0 0 20px;
+      color: #777;
+    }
+
+    .param-type {
+      font-style: italic;
+    }
+
+    .param-enum-header {
+      width: 700px;
+      padding: 0 0 0 60px;
+      color: #777;
+      font-weight: bold;
+    }
+
+    .param-enum {
+      width: 700px;
+      padding: 0 0 0 80px;
+      color: #777;
+      font-style: italic;
+    }
+
+    .field-label {
+      padding: 0;
+      margin: 0;
+      clear: both;
+    }
+
+    .field-items {
+      padding: 0 0 15px 0;
+      margin-bottom: 15px;
+    }
+
+    .return-type {
+      clear: both;
+      padding-bottom: 10px;
+    }
+
+    .param-header {
+      font-weight: bold;
+    }
+
+    .method-tags {
+      text-align: right;
+    }
+
+    .method-tag {
+      background: none repeat scroll 0% 0% #24A600;
+      border-radius: 3px;
+      padding: 2px 10px;
+      margin: 2px;
+      color: #FFF;
+      display: inline-block;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Swagger Cotizaciones Crédito - OpenAPI 3.0</h1>
+  <div class="app-desc">Esta es la documentación Swagger de una API para la gestión de productos y plazos de crédito.
+  </div>
+  <div class="app-desc">More information: <a href="https://helloreverb.com">https://helloreverb.com</a></div>
+  <div class="app-desc">Contact Info: <a href="adairo.dev@gmail.com">adairo.dev@gmail.com</a></div>
+  <div class="app-desc">Version: 1.0.11</div>
+  <div class="app-desc">BasePath:/api/v3</div>
+  <div class="license-info">All rights reserved</div>
+  <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
+  <h2>Access</h2>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Cotizaciones">Cotizaciones</a></h4>
+  <ul>
+    <li><a
+        href="#cotizacionesProductSkuPlazoGet"><code><span class="http-method">get</span> /cotizaciones/{productSku}/{plazo}</code></a>
+    </li>
+  </ul>
+  <h4><a href="#Productos">Productos</a></h4>
+  <ul>
+    <li><a href="#createPlazo"><code><span class="http-method">post</span> /productos/{productId}/plazos</code></a></li>
+    <li><a href="#createProduct"><code><span class="http-method">post</span> /productos</code></a></li>
+    <li><a href="#deleteProduct"><code><span class="http-method">delete</span> /productos/{productId}</code></a></li>
+    <li><a href="#getPlazos"><code><span class="http-method">get</span> /productos/{productId}/plazos</code></a></li>
+    <li><a href="#getProducts"><code><span class="http-method">get</span> /productos</code></a></li>
+    <li><a href="#updateProduct"><code><span class="http-method">patch</span> /productos/{productId}</code></a></li>
+  </ul>
+
+  <h1><a name="Cotizaciones">Cotizaciones</a></h1>
+  <div class="method"><a name="cotizacionesProductSkuPlazoGet"></a>
+    <div class="method-path">
+      <a class="up" href="#__Methods">Up</a>
+      <pre
+        class="get"><code class="huge"><span class="http-method">get</span> /cotizaciones/{productSku}/{plazo}</code></pre>
+    </div>
+    <div class="method-summary"> (<span class="nickname">cotizacionesProductSkuPlazoGet</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">productSku (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; SKU del producto a obtener
+        cotización </div>
+      <div class="param">plazo (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; plazo expresado en semanas </div>
+    </div> <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Cotizacion">Cotizacion</a>
+
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "abonoNormal" : 15790.45,
+  "abonoPuntual" : 14900.32
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Cotización satisfactoria
+    <a href="#Cotizacion">Cotizacion</a>
+    <h4 class="field-label">404</h4>
+    No se encontró el plazo y/o el producto especificado
+    <a href="#"></a>
+  </div> <!-- method -->
+  <hr />
+  <h1><a name="Productos">Productos</a></h1>
+  <div class="method"><a name="createPlazo"></a>
+    <div class="method-path">
+      <a class="up" href="#__Methods">Up</a>
+      <pre
+        class="post"><code class="huge"><span class="http-method">post</span> /productos/{productId}/plazos</code></pre>
+    </div>
+    <div class="method-summary">Crear un nuevo plazo para un producto (<span class="nickname">createPlazo</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">productId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID del producto para el cual se
+        crea el plazo </div>
+    </div> <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#PlazoPost">PlazoPost</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; </div>
+    </div> <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Product">Product</a>
+
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "precio" : 14545.23,
+  "id" : 1,
+  "sku" : "117FTG34",
+  "nombre" : "Smartphone 2023"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Plazo creado
+    <a href="#Product">Product</a>
+    <h4 class="field-label">400</h4>
+    Datos de entrada inválidos
+    <a href="#"></a>
+  </div> <!-- method -->
+  <hr />
+  <div class="method"><a name="createProduct"></a>
+    <div class="method-path">
+      <a class="up" href="#__Methods">Up</a>
+      <pre class="post"><code class="huge"><span class="http-method">post</span> /productos</code></pre>
+    </div>
+    <div class="method-summary">Agregar un nuevo producto a la tienda (<span class="nickname">createProduct</span>)
+    </div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#ProductPost">ProductPost</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Crear un nuevo producto </div>
+    </div> <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Product">Product</a>
+
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "precio" : 14545.23,
+  "id" : 1,
+  "sku" : "117FTG34",
+  "nombre" : "Smartphone 2023"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Creación exitosa
+    <a href="#Product">Product</a>
+    <h4 class="field-label">400</h4>
+    Datos de entrada inválidos
+    <a href="#"></a>
+  </div> <!-- method -->
+  <hr />
+  <div class="method"><a name="deleteProduct"></a>
+    <div class="method-path">
+      <a class="up" href="#__Methods">Up</a>
+      <pre class="delete"><code class="huge"><span class="http-method">delete</span> /productos/{productId}</code></pre>
+    </div>
+    <div class="method-summary">Eliminar un producto existente (<span class="nickname">deleteProduct</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">productId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID del producto a eliminar </div>
+    </div> <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Product">Product</a>
+
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "precio" : 14545.23,
+  "id" : 1,
+  "sku" : "117FTG34",
+  "nombre" : "Smartphone 2023"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">202</h4>
+    Producto eliminado
+    <a href="#Product">Product</a>
+    <h4 class="field-label">400</h4>
+    Datos de entrada inválidos
+    <a href="#"></a>
+  </div> <!-- method -->
+  <hr />
+  <div class="method"><a name="getPlazos"></a>
+    <div class="method-path">
+      <a class="up" href="#__Methods">Up</a>
+      <pre
+        class="get"><code class="huge"><span class="http-method">get</span> /productos/{productId}/plazos</code></pre>
+    </div>
+    <div class="method-summary">Obtener los plazos disponibles de un producto (<span class="nickname">getPlazos</span>)
+    </div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">productId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID del producto del que se obtienen
+        los plazos </div>
+    </div> <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Plazo">Plazo</a>]
+
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "tasa_normal" : 1.0366,
+  "tasa_puntual" : 0.8963,
+  "producto_id" : 6,
+  "id" : 1,
+  "plazo_semanas" : 12
+}, {
+  "tasa_normal" : 1.0366,
+  "tasa_puntual" : 0.8963,
+  "producto_id" : 6,
+  "id" : 1,
+  "plazo_semanas" : 12
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Recuperación exitosa
+
+  </div> <!-- method -->
+  <hr />
+  <div class="method"><a name="getProducts"></a>
+    <div class="method-path">
+      <a class="up" href="#__Methods">Up</a>
+      <pre class="get"><code class="huge"><span class="http-method">get</span> /productos</code></pre>
+    </div>
+    <div class="method-summary">Obtener una lista de todos los productos disponibles (<span
+        class="nickname">getProducts</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Product">Product</a>]
+
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "precio" : 14545.23,
+  "id" : 1,
+  "sku" : "117FTG34",
+  "nombre" : "Smartphone 2023"
+}, {
+  "precio" : 14545.23,
+  "id" : 1,
+  "sku" : "117FTG34",
+  "nombre" : "Smartphone 2023"
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Recuperación exitosa
+
+  </div> <!-- method -->
+  <hr />
+  <div class="method"><a name="updateProduct"></a>
+    <div class="method-path">
+      <a class="up" href="#__Methods">Up</a>
+      <pre class="patch"><code class="huge"><span class="http-method">patch</span> /productos/{productId}</code></pre>
+    </div>
+    <div class="method-summary">Actualizar un producto existente (<span class="nickname">updateProduct</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">productId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID del producto a actualizar </div>
+    </div> <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#ProductPost">ProductPost</a> (required)</div>
+
+      <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; El schema del bodyRequest puede ser
+        parcial, no es necesario proporcionar todos los campos </div>
+    </div> <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Product">Product</a>
+
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "precio" : 14545.23,
+  "id" : 1,
+  "sku" : "117FTG34",
+  "nombre" : "Smartphone 2023"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Actualización exitosa
+    <a href="#Product">Product</a>
+    <h4 class="field-label">400</h4>
+    Datos de entrada inválidos
+    <a href="#"></a>
+  </div> <!-- method -->
+  <hr />
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#Cotizacion"><code>Cotizacion</code></a></li>
+    <li><a href="#Plazo"><code>Plazo</code></a></li>
+    <li><a href="#PlazoPost"><code>PlazoPost</code></a></li>
+    <li><a href="#Product"><code>Product</code></a></li>
+    <li><a href="#ProductPost"><code>ProductPost</code></a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="Cotizacion"><code>Cotizacion</code></a> <a class="up" href="#__Models">Up</a></h3>
+
+    <div class="field-items">
+      <div class="param">abonoNormal (optional)</div>
+      <div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span> </div>
+      <div class="param-desc"><span class="param-type">example: 15790.45</span></div>
+      <div class="param">abonoPuntual (optional)</div>
+      <div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span> </div>
+      <div class="param-desc"><span class="param-type">example: 14900.32</span></div>
+    </div> <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Plazo"><code>Plazo</code></a> <a class="up" href="#__Models">Up</a></h3>
+
+    <div class="field-items">
+      <div class="param">id (optional)</div>
+      <div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> </div>
+      <div class="param-desc"><span class="param-type">example: 1</span></div>
+      <div class="param">plazo_semanas (optional)</div>
+      <div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> </div>
+      <div class="param-desc"><span class="param-type">example: 12</span></div>
+      <div class="param">producto_id (optional)</div>
+      <div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> hola </div>
+      <div class="param-desc"><span class="param-type">example: 6</span></div>
+      <div class="param">tasa_normal (optional)</div>
+      <div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span> </div>
+      <div class="param-desc"><span class="param-type">example: 1.0366</span></div>
+      <div class="param">tasa_puntual (optional)</div>
+      <div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span> </div>
+      <div class="param-desc"><span class="param-type">example: 0.8963</span></div>
+    </div> <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="PlazoPost"><code>PlazoPost</code></a> <a class="up" href="#__Models">Up</a></h3>
+
+    <div class="field-items">
+      <div class="param">plazo_semanas (optional)</div>
+      <div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> </div>
+      <div class="param-desc"><span class="param-type">example: 12</span></div>
+      <div class="param">tasa_normal (optional)</div>
+      <div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span> </div>
+      <div class="param-desc"><span class="param-type">example: 1.0366</span></div>
+      <div class="param">tasa_puntual (optional)</div>
+      <div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span> </div>
+      <div class="param-desc"><span class="param-type">example: 0.8963</span></div>
+    </div> <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Product"><code>Product</code></a> <a class="up" href="#__Models">Up</a></h3>
+
+    <div class="field-items">
+      <div class="param">id (optional)</div>
+      <div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> </div>
+      <div class="param-desc"><span class="param-type">example: 1</span></div>
+      <div class="param">sku (optional)</div>
+      <div class="param-desc"><span class="param-type"><a href="#string">String</a></span> </div>
+      <div class="param-desc"><span class="param-type">example: 117FTG34</span></div>
+      <div class="param">nombre (optional)</div>
+      <div class="param-desc"><span class="param-type"><a href="#string">String</a></span> </div>
+      <div class="param-desc"><span class="param-type">example: Smartphone 2023</span></div>
+      <div class="param">precio (optional)</div>
+      <div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span> </div>
+      <div class="param-desc"><span class="param-type">example: 14545.23</span></div>
+    </div> <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ProductPost"><code>ProductPost</code></a> <a class="up" href="#__Models">Up</a></h3>
+
+    <div class="field-items">
+      <div class="param">sku (optional)</div>
+      <div class="param-desc"><span class="param-type"><a href="#string">String</a></span> </div>
+      <div class="param-desc"><span class="param-type">example: 117FTG34</span></div>
+      <div class="param">nombre (optional)</div>
+      <div class="param-desc"><span class="param-type"><a href="#string">String</a></span> </div>
+      <div class="param-desc"><span class="param-type">example: Smartphone 2023</span></div>
+      <div class="param">precio (optional)</div>
+      <div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span> </div>
+      <div class="param-desc"><span class="param-type">example: 14545.23</span></div>
+    </div> <!-- field-items -->
+  </div>
+</body>
+
+</html>
