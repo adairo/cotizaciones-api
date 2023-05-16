@@ -1,6 +1,5 @@
 import express from "express";
 import { productsRouter } from "./routers/productsRouter.js";
-import { plazosRouter } from "./routers/plazosRouter.js";
 import { cotizacionesRouter } from "./routers/cotizacionesRouter.js";
 
 const app = express();
