@@ -6,7 +6,7 @@ Para la base de datos se decidió utilizar PostgreSQL bajo la librería `pg-node
 y validación de schemas sobre las solicitudes entrantes. 
 
 Haz click aquí para [ver la documentación openapi de este proyecto (swagger)](https://cotizaciones-api-production.up.railway.app/)
-El servidor que atiende las solicitudes se encuentra en el mismo dominio, pero en el directorio `/api`. Por ejemplo, para obtener una
+El servidor que atiende las solicitudes se encuentra en el mismo dominio, pero bajo la ruta `/api`. Por ejemplo, para obtener una
 lista de todos los productos disponibles, se debe hacer una petición GET al recurso https://cotizaciones-api-production.up.railway.app/api/productos
 
 ## Descripción del problema
