@@ -1,3 +1,14 @@
+# Cotizaciones API
+
+En este proyecto se implementa una API rest para la gestión de productos, plazos, y la generación de cotizaciones de crédito.
+La aplicación está escrita en Nodejs y utiliza Express para definir las rutas y métodos disponibles sobre cada recurso.
+Para la base de datos se decidió utilizar PostgreSQL bajo la librería `pg-node`. Además se utiliza `zod` para la creación
+y validación de schemas sobre las solicitudes entrantes. 
+
+Haz click aquí para [ver la documentación openapi de este proyecto (swagger)](https://cotizaciones-api-production.up.railway.app/)
+El servidor que atiende las solicitudes se encuentra en el mismo dominio, pero en el directorio `/api`. Por ejemplo, para obtener una
+lista de todos los productos disponibles, se debe hacer una petición GET al recurso https://cotizaciones-api-production.up.railway.app/api/productos
+
 ## Descripción del problema
 
 En el Área de mercadeo, se requiere realizar micro servicios de cotización de productos a crédito, el cual debe contar con 3 secciones:
@@ -18,7 +29,7 @@ En el Área de mercadeo, se requiere realizar micro servicios de cotización de 
   - Abono Normal ---- ((Precio del producto \_ tasa normal) + Precio del producto) / plazo
   - Abono Puntual ---- ((Precio del producto \_ tasa puntual) + Precio del producto) / plazo
 
-## Desarrollo
+## Desarrollo de la base de datos
 
 Se iniciará con el diseño de la base de datos. El primer paso será identificar las entidades involucradas en este problema. Analizando la descripción podemos observar 2 entidades principales:
 
@@ -39,8 +50,7 @@ La entidad Plazos contendrá los siguientes atributos:
 
 Se asumirá que para cada producto se deben registrar sus respectivos plazos
 
-## Base de datos
-
+A continuación se muestra el código para configurar la base de datos
 ```sql
 CREATE TABLE productos (
     id SERIAL PRIMARY KEY,
@@ -90,4 +100,4 @@ VALUES
 
 ## Endpoints
 
-Se definirá el endpoint `/api/productos` para habilitar las operaciones correspondientes con la tabla productos.
+Para conocer todos los detalles y opciones disponibles para cada recurso, visita la [documentación openapi de este proyecto (swagger)](https://cotizaciones-api-production.up.railway.app/) 
