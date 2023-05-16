@@ -1,0 +1,257 @@
+openapi: 3.0.3
+info:
+  title: Swagger Cotizaciones Crédito - OpenAPI 3.0
+  description: |-
+    Esta es la documentación Swagger de una API para la gestión de productos y plazos de crédito. 
+    
+  contact:
+    email: adairo.dev@gmail.com
+  version: 1.0.11
+externalDocs:
+  description: Find out more about Swagger
+  url: http://swagger.io
+servers:
+  - url: "to be defined"
+tags:
+  - name: productos
+    description: Manejo de productos
+  - name: cotizaciones
+    description: Calcula los abonos de un producto según el plazo elegido
+paths:
+  /productos:
+    get:
+      tags:
+        - productos
+      summary: Obtener una lista de todos los productos disponibles
+      operationId: getProducts
+      responses:
+        '200':
+          description: Recuperación exitosa
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'         
+    post:
+      tags:
+        - productos
+      summary: Agregar un nuevo producto a la tienda
+      operationId: createProduct
+      requestBody:
+        description: Crear un nuevo producto
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductPost'
+        required: true
+      responses:
+        '201':
+          description: Creación exitosa
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'          
+        '400':
+          description: Datos de entrada inválidos
+  /productos/{productId}:
+    patch:
+      tags:
+        - productos
+      summary: Actualizar un producto existente
+      operationId: updateProduct
+      parameters:
+        - name: productId
+          in: path
+          description: ID del producto a actualizar
+          required: true
+          schema:
+            type: integer
+            
+      requestBody:
+        description: El schema del bodyRequest puede ser parcial, no es necesario proporcionar todos los campos
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductPost'
+        required: true
+      responses:
+        '201':
+          description: Actualización exitosa
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'          
+        '400':
+          description: Datos de entrada inválidos
+    delete:
+      tags:
+        - productos
+      summary: Eliminar un producto existente
+      operationId: deleteProduct
+      parameters:
+        - name: productId
+          in: path
+          description: ID del producto a eliminar
+          required: true
+          schema:
+            type: integer
+      responses:
+        '202':
+          description: Producto eliminado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'          
+        '400':
+          description: Datos de entrada inválidos
+          
+  /productos/{productId}/plazos:
+    get:
+      tags:
+        - productos
+      summary: Obtener los plazos disponibles de un producto
+      operationId: getPlazos
+      parameters:
+        - name: productId
+          in: path
+          description: ID del producto del que se obtienen los plazos
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Recuperación exitosa
+          content:
+            application/json:
+              schema:
+                type: array
+                items: 
+                  $ref: '#/components/schemas/Plazo'          
+    post:
+      tags:
+        - productos
+      summary: Crear un nuevo plazo para un producto
+      operationId: createPlazo
+      parameters:
+        - name: productId
+          in: path
+          description: ID del producto para el cual se crea el plazo
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PlazoPost'
+        required: true
+      responses:
+        '201':
+          description: Plazo creado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'          
+        '400':
+          description: Datos de entrada inválidos
+  /cotizaciones/{productSku}/{plazo} :
+    get:
+      tags:
+        - cotizaciones
+      parameters:
+        - name: productSku
+          in: path
+          description: SKU del producto a obtener cotización
+          required: true
+          schema:
+            type: string
+        - name: plazo
+          in: path
+          description: plazo expresado en semanas
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Cotización satisfactoria
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cotizacion'
+        '404':
+          description: No se encontró el plazo y/o el producto especificado
+
+
+components:
+  schemas:
+    Product:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        sku:
+          type: string
+          example: 117FTG34
+        nombre:
+          type: string
+          example: "Smartphone 2023"
+        precio:
+          type: number
+          example: 14545.23
+    ProductPost:
+      type: object
+      properties:
+        sku:
+          type: string
+          example: 117FTG34
+        nombre:
+          type: string
+          example: "Smartphone 2023"
+        precio:
+          type: number
+          example: 14545.23
+    Plazo:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        plazo_semanas:
+          type: integer
+          example: 12
+        producto_id:
+          type: integer
+          description: hola
+          example: 6
+        tasa_normal:
+          type: number
+          example: 1.0366
+        tasa_puntual:
+          type: number
+          example: 0.8963
+          
+    PlazoPost:
+      type: object
+      properties:
+        plazo_semanas:
+          type: integer
+          example: 12
+        tasa_normal:
+          type: number
+          example: 1.0366
+        tasa_puntual:
+          type: number
+          example: 0.8963
+          
+    Cotizacion:
+      type: object
+      properties:
+        abonoNormal:
+          type: number
+          example: 15790.45
+        abonoPuntual:
+          type: number
+          example: 14900.32
+    
