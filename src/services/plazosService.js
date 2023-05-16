@@ -25,6 +25,17 @@ export const createPlazo = async (productId, plazoData) => {
 };
 
 
-export const getPlazosOfProduct = (productId) => {
-  
+export const getPlazosOfProduct = async (productId) => {
+  const result = await pool.query(
+    `
+    SELECT id, plazo_semanas, producto_id, tasa_normal, tasa_puntual
+    FROM plazos
+    WHERE producto_id = $1
+    ORDER BY plazo_semanas ASC
+    `, 
+    [productId]
+  )
+
+  const plazos = result.rows;
+  return plazos;
 }

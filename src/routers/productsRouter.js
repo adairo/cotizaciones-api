@@ -27,5 +27,6 @@ productsRouter.post(
 
 productsRouter.get(
   "/:productId/plazos",
+  validate(plazosSchemas.getPlazosOfProduct),
   plazosController.getPlazosOfProduct
 );

@@ -14,7 +14,11 @@ export const createPlazo = async (req, res) => {
 
 export const getPlazosOfProduct = async (req, res) => {
   const { productId } = req.params;
-  
-  // const plazos = await service.getPlazosOfProduct(productId);
-  res.status(200).send(plazos)
+
+  try {
+    const plazos = await service.getPlazosOfProduct(productId);
+    res.status(200).send(plazos);
+  } catch (error) {
+    res.status(error.status ?? 500).send({ error: error.message });
+  }
 };
