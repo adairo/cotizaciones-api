@@ -1,5 +1,5 @@
 {
-  "name": "grupo-salinas-api",
+  "name": "cotizaciones-api",
   "version": "1.0.0",
   "type": "module",
   "description": "una api para la gestión de productos, plazos y cotizaciones",
